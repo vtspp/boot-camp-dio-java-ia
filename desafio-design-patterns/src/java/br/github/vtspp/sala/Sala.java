@@ -8,10 +8,6 @@ public class Sala {
     private static final int MINIMO_PARTICIPANTES = 2;
     private boolean aberta;
 
-    public Sala() {
-        this.aberta = true;
-    }
-
     public void entrarSala(Participante ... participantes) {
 
         if (participantes.length < MINIMO_PARTICIPANTES)
