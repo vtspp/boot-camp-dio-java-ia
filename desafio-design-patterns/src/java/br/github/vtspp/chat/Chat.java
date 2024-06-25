@@ -1,7 +1,6 @@
 package br.github.vtspp.chat;
 
 import br.github.vtspp.mensagem.Mensagem;
-import br.github.vtspp.sala.InteracaoNaoPermitidaException;
 import br.github.vtspp.sala.Sala;
 
 import java.util.Arrays;
@@ -37,7 +36,7 @@ public class Chat implements Notificavel {
 
     public static String interagir() {
         if (naoPodeInteragirComChat())
-            throw new InteracaoNaoPermitidaException("Só é permitido interagir com o chat quanto há participantes");
+            throw new ChatInteracaoNaoPermitidaException("Só é permitido interagir com o chat quanto há participantes");
         return scanner.nextLine();
     }
 
