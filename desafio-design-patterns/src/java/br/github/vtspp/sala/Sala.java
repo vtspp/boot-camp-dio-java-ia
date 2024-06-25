@@ -5,7 +5,7 @@ import br.github.vtspp.chat.Participante;
 
 public class Sala {
 
-    private static final int MINIMO_PARTICIPANTES = 2;
+    private static final short MINIMO_PARTICIPANTES = 2;
     private boolean aberta;
 
     public void entrarSala(Participante ... participantes) {
