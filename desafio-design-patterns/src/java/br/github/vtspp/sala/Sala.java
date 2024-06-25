@@ -13,6 +13,7 @@ public class Sala {
         if (participantes.length < MINIMO_PARTICIPANTES)
             throw new SalaChatNaoPodeSerAbertaException(String.format("A sala precisa de no mínimo %d participantes para ser aberta.", MINIMO_PARTICIPANTES));
 
+        this.aberta = true;
         new Chat(this, participantes);
     }
 
