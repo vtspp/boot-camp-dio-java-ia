@@ -11,8 +11,9 @@ import java.util.Set;
 public class Chat implements Notificavel {
 
     private static final String SAIR = "sair";
+    private static final int MINIMO_PARTICIPANTES = 2;
     private static final Scanner scanner = new Scanner(System.in);
-    private static final Set<Notificador> participantes = new HashSet<>(2);
+    private static final Set<Notificador> participantes = new HashSet<>(MINIMO_PARTICIPANTES);
     private final Sala sala;
 
     public Chat(Sala sala, Notificador... participantes) {
@@ -56,11 +57,19 @@ public class Chat implements Notificavel {
     }
 
     private boolean temParticipantes() {
-        return !Chat.participantes.isEmpty();
+        return !Chat.participantes.isEmpty() && temMinimoParticipantes();
     }
 
     private static boolean naoTemParticipantes() {
-        return Chat.participantes.isEmpty();
+        return naoTemMinimoParticipantes();
+    }
+
+    private boolean temMinimoParticipantes() {
+        return Chat.participantes.size() >= MINIMO_PARTICIPANTES;
+    }
+
+    private static boolean naoTemMinimoParticipantes() {
+        return Chat.participantes.isEmpty() || Chat.participantes.size() < MINIMO_PARTICIPANTES;
     }
 
     private boolean sair(String mensagem) {
